@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Tab Navigation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      window.onload = function () {
+        var navItems = document.querySelectorAll('nav li');
+        var contents = document.querySelectorAll('.content');
+
+        navItems.forEach(function (item, index) {
+          item.addEventListener('click', function () {
+            navItems.forEach(function (navItem) {
+              navItem.classList.remove('active');
+            });
+            item.classList.add('active');
+            contents.forEach(function (content) {
+              content.classList.remove('show');
+            });
+            contents[index].classList.add('show');
+          });
+        });
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="phone">
+      <img src="./Images/bg-home.jpg" alt="home" class="content show" />
+      <img src="./Images/bg-work.avif" alt="work" class="content" />
+      <img src="./Images/bg-blog.jpg" alt="blog" class="content" />
+      <img src="./Images/bg-about.jpg" alt="about" class="content" />
+      <nav>
+        <ul>
+          <li class="active">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <p>Home</p>
+          </li>
+          <li>
+            <i class="fa fa-briefcase" aria-hidden="true"></i>
+            <p>Work</p>
+          </li>
+          <li>
+            <i class="fa fa-address-book-o" aria-hidden="true"></i>
+            <p>Blog</p>
+          </li>
+          <li>
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <p>About us</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
